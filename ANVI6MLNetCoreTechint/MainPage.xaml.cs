@@ -154,7 +154,8 @@ namespace ANVI6MLNetCoreTechint
             PrediccionesIniciar prediccionesIniciar = new PrediccionesIniciar();
             prediccionesIniciar.Llenar(datosGeneralesNew);
             Prediccion prediccion = model.Predict(prediccionesIniciar.datosGenerales);
-            txtResultado.Text = prediccion.TiempoEntrega.ToString();
+            txtResultado.Text = "El tiempo de entrega del paquete se estima en:";
+            txtResultado1.Text= prediccion.TiempoEntrega.ToString() + " hs.";
             
         }
         private static void Evaluate(PredictionModel<DatosGenerales, Prediccion> model)

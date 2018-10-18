@@ -7,47 +7,79 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="779">
 
-    <Grid>
+    <Grid Padding="5">
         <Grid Padding="5">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="190"></ColumnDefinition>
-                <ColumnDefinition Width="160"></ColumnDefinition>
+                <ColumnDefinition Width="350"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="60"></RowDefinition>
-                <RowDefinition Height="200"></RowDefinition>
-                <RowDefinition Height="200"></RowDefinition>
-                <RowDefinition Height="60"></RowDefinition>
-                <RowDefinition Height="60"></RowDefinition>
-                <RowDefinition Height="60"></RowDefinition>
-                
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="250"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="250"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+
             </Grid.RowDefinitions>
-            
-            <TextBox Header="Peso" VerticalAlignment="Top" Width="150" Height="60" x:Name="txtPeso" Grid.Row="0" Grid.Column="0"></TextBox>
-            <ListBox Grid.Row="1" x:Name="lstBoxDestino" ItemsSource="{x:Bind tuplesList}" ToolTipService.ToolTip="Destino">
-                <ListBox.ItemTemplate>
-                    <DataTemplate x:DataType="local:Destino">
-                        <TextBlock Text="{Binding DestinoItem}"></TextBlock>
-                    </DataTemplate>                    
-                </ListBox.ItemTemplate>                
-            </ListBox>
+
+            <TextBox Padding="5" Header="Peso" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="60" x:Name="txtPeso" Grid.Row="0" Grid.Column="0"></TextBox>
+            <StackPanel Grid.Row="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="230"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Destino" Height="30" Grid.Row="0"></TextBlock>
+                    <ListBox Padding="5" x:Name="lstBoxDestino" Grid.Row="1" ItemsSource="{x:Bind tuplesList}" ToolTipService.ToolTip="Destino">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate x:DataType="local:Destino">
+                                <TextBlock Text="{Binding DestinoItem}"></TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+
+            </StackPanel>
             <!--
                 <TextBox Header="Destino" VerticalAlignment="Top" Width="150" Height="60" x:Name="txtDestino" Grid.Row="1" Grid.Column="0"></TextBox>
             -->
-            <ListBox Grid.Row="2" x:Name="lstBoxCat" ItemsSource="{x:Bind tuplesListCategorias}" ToolTipService.ToolTip="Destino">
-                <ListBox.ItemTemplate>
-                    <DataTemplate x:DataType="local:Categorias">
-                        <TextBlock Text="{Binding CategoriaItem }"></TextBlock>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <StackPanel Grid.Row="3">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="230"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Categoria" Height="30" Grid.Row="0"></TextBlock>
+                    <ListBox Padding="5" x:Name="lstBoxCat" Grid.Row="1" ItemsSource="{x:Bind tuplesListCategorias}" ToolTipService.ToolTip="Destino">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate x:DataType="local:Categorias">
+                                <TextBlock Text="{Binding CategoriaItem }"></TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </StackPanel>
             <!--
                 <TextBox Header="Categoria" VerticalAlignment="Top" Width="150" Height="60" x:Name="txtCategoria" Grid.Row="2" Grid.Column="0"></TextBox>
             -->
-            <Button Margin="5,0,0,0" Grid.Row="3" Grid.Column="0" Content="Calcular" x:Name="btnEntrenar" Click="BtnEntrenar_Click"></Button>
-            <TextBlock VerticalAlignment="Top" Width="150" Height="60" x:Name="txtResultado" Grid.Row="5" Grid.Column="0"></TextBlock>
+            <Button Margin="5,0,0,0" Grid.Row="4" Grid.Column="0" Content="Calcular" x:Name="btnEntrenar" Click="BtnEntrenar_Click"></Button>
+            <TextBlock VerticalAlignment="Top" TextWrapping="Wrap" Width="Auto" Height="40" x:Name="txtResultado" Grid.Row="5" Grid.Column="0"></TextBlock>
+            <TextBlock VerticalAlignment="Top" Foreground="Green" FontSize="30" TextWrapping="Wrap" Width="Auto" Height="40" x:Name="txtResultado1" Grid.Row="6" Grid.Column="0"></TextBlock>
+
+            <Grid Grid.RowSpan="6" Grid.Column="1" Grid.Row="0">
+                <StackPanel>
+                    <Image Source="ms-appx:///Assets/truck.jpg" Stretch="Fill" Height="500"/>
+                    <Image Source="ms-appx:///Assets/Softtek.png" Width="200" HorizontalAlignment="Right"/>
+
+                </StackPanel>
+            </Grid>
+
 
 
         </Grid>
